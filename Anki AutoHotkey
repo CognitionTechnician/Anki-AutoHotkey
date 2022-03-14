@@ -1,5 +1,6 @@
 #NoEnv  ; Recommended for performance and compatibility with future AutoHotkey releases.
 #SingleInstance Force
+#NoTrayIcon
 ; #Warn  ; Enable warnings to assist with detecting common errors.
 SendMode Input  ; Recommended for new scripts due to its superior speed and reliability.
 SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
@@ -8,7 +9,7 @@ SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 
 ; CapsLock sends text to first field in Anki
 ; Press Shift and CapsLock to use CapsLock regularly
-; Press Windows key and 1 to send text to second field in Anki
+; Press ` to send text to second field in Anki
 
 +CapsLock::CapsLock
 CapsLock::
@@ -19,18 +20,18 @@ Clipboard:=
 send, ^c
 ClipWait
 SetKeyDelay, 0, 10
-ControlSend , ,^1^v, ahk_id %ID%
-WinRestore Add
+ControlSend , ,^2^v, ahk_id %ID%
+WinRestore, Add
 Return
 
-#1::
-WinWait Add
-WinMinimize Add
-WinGet ID, ID, Add
+`::
+WinWait, Add
+WinMinimize, Add
+WinGet, ID, ID, Add
 Clipboard:=
 send, ^c
 ClipWait
 SetKeyDelay, 0, 10
-ControlSend , ,^2^v, ahk_id %ID%
-WinRestore Add
+ControlSend , ,^1^v, ahk_id %ID%
+WinRestore, Add
 Return
