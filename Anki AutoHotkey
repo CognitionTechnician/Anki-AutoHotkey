@@ -7,9 +7,9 @@ SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 
 ; MAKE SURE TO RENAME THE FILE TO HAVE .ahk at the end so the script is recognised as a AutoHotkey script.
 
-; CapsLock sends text to first field in Anki
+; Press ` to send text to first field in Anki
 ; Press Shift and CapsLock to use CapsLock regularly
-; Press ` to send text to second field in Anki
+; Press CapsLock to send text to second field in Anki
 
 +CapsLock::CapsLock
 CapsLock::
